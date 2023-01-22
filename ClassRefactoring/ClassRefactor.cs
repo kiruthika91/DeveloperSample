@@ -34,21 +34,23 @@ namespace DeveloperSample.ClassRefactoring
 
         public double GetAirspeedVelocity()
         {
-            if (Type == SwallowType.African && Load == SwallowLoad.None)
+            if (Type == SwallowType.African)
             {
-                return 22;
+                switch(Load) {
+                    case SwallowLoad.None:
+                     return 22;
+                    case SwallowLoad.Coconut:
+                    return 18;
+                }
             }
-            if (Type == SwallowType.African && Load == SwallowLoad.Coconut)
+            if (Type == SwallowType.European)
             {
-                return 18;
-            }
-            if (Type == SwallowType.European && Load == SwallowLoad.None)
-            {
-                return 20;
-            }
-            if (Type == SwallowType.European && Load == SwallowLoad.Coconut)
-            {
-                return 16;
+               switch(Load) {
+                    case SwallowLoad.None:
+                     return 20;
+                    case SwallowLoad.Coconut:
+                    return 16;
+                }
             }
             throw new InvalidOperationException();
         }
